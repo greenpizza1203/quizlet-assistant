@@ -1,5 +1,6 @@
 {
-  "name": "quizlet assistant",
+  "name": "Quizlet Assistant",
+  "description": "Does magical stuff",
   "version": "1.0",
   "permissions": [
     "contextMenus",
@@ -13,6 +14,9 @@
   ],
   "background": {
     "service_worker": "background.js"
+  },
+  "icons": {
+    "325": "icon.png"
   },
   "web_accessible_resources": [
     {
