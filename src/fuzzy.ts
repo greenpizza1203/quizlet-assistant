@@ -31,7 +31,6 @@ export class Fuzzy {
     search(fuzzy: any) {
         const t0 = performance.now();
         let results = this.fuse.search(fuzzy, {limit: 3});
-        console.log(this.fuse.getIndex())
         const t1 = performance.now();
         console.log(`Searched ${this.count} cards in ${t1 - t0} milliseconds.`);
         return results.map(result => result.item)

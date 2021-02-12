@@ -7,7 +7,7 @@ export let cards: CardElement[] = []
 
 export async function createElement() {
     parent = document.body.appendChild(document.createElement('div'))
-    parent.classList.add("limeLightParent", "fade", "outerFade")
+    parent.classList.add("limeLightParent", "fade")
     const mouseOverCode = await fetchString("mouseover.html")
     for (let i = 0; i < 3; i++) {
         const placeholder = document.createElement('div');
@@ -28,7 +28,7 @@ document.onmousemove = (event: MouseEvent) => {
 }
 let targetText: string
 
-export function updateSelection(event: MouseEvent) {
+export function updateSelection(event?: MouseEvent) {
     if (event) {
         parent.style.left = event.x + 40 + "px";
         parent.style.top = event.y + 30 + "px";
