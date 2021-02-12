@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "esnext",
+    "lib": ["DOM","webworker"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

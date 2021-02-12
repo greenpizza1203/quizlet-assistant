@@ -1,0 +1,28 @@
+{
+  "name": "quizlet assistant",
+  "version": "1.0",
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.serpapi.com/*",
+    "*://*.quizlet.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "mouseover.html",
+        "worker.js",
+        "3b163a98257cbac771f6.module.wasm"
+      ],
+      "extension_ids": []
+    }
+  ],
+  "manifest_version": 3
+}
