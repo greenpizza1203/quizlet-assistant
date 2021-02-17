@@ -24,10 +24,27 @@ async function createWorker() {
 }
 
 function handleWorkerMessage({data}) {
+    busy = false;
+    if (lastRequest) {
+        let request = lastRequest;
+        lastRequest = null;
+        requestFuzzy(request)
+
+    }
     renderCards(data)
 }
 
+let busy = false;
+let lastRequest;
+
 export async function requestFuzzy(fuzzy) {
-    (await worker).postMessage(fuzzy)
+    if (busy) {
+        lastRequest = fuzzy
+        return;
+    } else {
+        busy = true;
+        (await worker).postMessage(fuzzy)
+    }
+
 }
 

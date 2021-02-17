@@ -40,19 +40,12 @@ export function updateSelection(event?: MouseEvent) {
 
     if (targetText) {
         parent.classList.remove("outerFade");
-        delayedSend()
+        send()
     } else {
         parent.classList.add("outerFade")
     }
 }
 
-let lastRequest;
-let delay = 400;
-
-function delayedSend() {
-    if (lastRequest) clearTimeout(lastRequest)
-    lastRequest = setTimeout(send, delay)
-}
 
 function send() {
     requestFuzzy(targetText)

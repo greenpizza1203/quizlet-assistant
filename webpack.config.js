@@ -1,5 +1,6 @@
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const DefinePlugin = require('webpack').DefinePlugin;
+const {CleanWebpackPlugin: CleanPlugin} = require('clean-webpack-plugin');
 const path = require("path")
 
 module.exports = {
@@ -10,12 +11,20 @@ module.exports = {
     module: {
         rules: [
             {test: /\.ts$/, use: 'ts-loader'},
+            {
+                test: /fuse.basic.esm.js$/,
+                loader: 'string-replace-loader',
+                options: {search: /charAt/g,  replace: 'charCodeAt',}
+            },
         ],
+
     },
     plugins: [
-        new CleanWebpackPlugin(),
-        new CopyWebpackPlugin({
-            patterns: [{from: "./assets"},]
-        })
+        new CleanPlugin(),
+        new CopyPlugin({
+            patterns: [{from: "./assets"}]
+        }),
+
+
     ]
 }
